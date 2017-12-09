@@ -5,6 +5,6 @@
  * Date: 09/12/17
  * Time: 15:07
  */
-echo "Hello World";
+echo json_encode("Hello World");
 
-print_r($_REQUEST);
+print_r(json_encode($_REQUEST));

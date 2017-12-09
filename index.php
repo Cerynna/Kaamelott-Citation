@@ -27,12 +27,9 @@ if($method == 'POST'){
             $speech = Citation::ARTHUR[array_rand(Citation::ARTHUR, 1)];
             break;
 
-        case 'anything':
-            $speech = "Yes, you can type anything here.";
-            break;
 
         default:
-            $speech = "Sorry, I didnt get $text .  Please ask me something else.";
+            $speech = "Désolé je ne comprend pas  $text .  Dit moi autre chose";
             break;
     }
 

@@ -14,14 +14,14 @@ if($method == 'POST'){
     $requestBody = file_get_contents('php://input');
     $json = json_decode($requestBody);
 
-    $text = $json->result->parameters->text;
+    $text = strtolower($json->result->parameters->text);
 
     switch ($text) {
-        case 'Perceval':
+        case 'perceval':
             $speech = "Hi, Nice to meet you";
             break;
 
-        case 'Arthur':
+        case 'arthur':
             $speech = "Bye, good night";
             break;
 

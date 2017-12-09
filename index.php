@@ -4,7 +4,7 @@ function sendMessage($parameters) {
     echo json_encode($parameters);
 }
 
-$parameters = $_SERVER;
+$parameters = "LOL";
 
 
 sendMessage($parameters);

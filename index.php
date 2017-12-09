@@ -10,10 +10,11 @@ try {
     $queryApi = new QueryApi($client);
 
     $meaning = $queryApi->extractMeaning('Hello', [
-        'sessionId' => '1234567890',
+        'sessionId' => 'bce16c60-02a8-44ab-8b37-25e20ea97bbd',
         'lang' => 'fr',
     ]);
     $response = new Query($meaning);
 } catch (\Exception $error) {
     echo $error->getMessage();
 }
+

@@ -1,5 +1,6 @@
 {
     "require": {
-        "php": "~7"
+        "php": "~7",
+        "iboldurev/dialogflow": "^0.3.0"
     }
 }

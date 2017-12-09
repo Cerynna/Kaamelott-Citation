@@ -6,6 +6,7 @@
  * sessionId
  * bce16c60-02a8-44ab-8b37-25e20ea97bbd
  */
+require "Citation.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
 
@@ -18,7 +19,9 @@ if($method == 'POST'){
 
     switch ($text) {
         case 'perceval':
-            $speech = "Hi, Nice to meet you";
+            ;
+            $rand_keys = array_rand(Citation::PERCEVAL, 1);
+            $speech = Citation::PERCEVAL[$rand_keys];
             break;
 
         case 'arthur':

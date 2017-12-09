@@ -6,18 +6,42 @@
  * sessionId
  * bce16c60-02a8-44ab-8b37-25e20ea97bbd
  */
-require_once __DIR__.'/vendor/autoload.php';
 
-use DialogFlow\Client;
+$method = $_SERVER['REQUEST_METHOD'];
 
-try {
-    $client = new Client('328efac2ee224d7fb498aad13424867f');
+// Process only when method is POST
+if($method == 'POST'){
+    $requestBody = file_get_contents('php://input');
+    $json = json_decode($requestBody);
 
-    $query = $client->get('query', [
-        'query' => 'Hello',
-    ]);
+    $text = $json->result->parameters->text;
 
-    $response = json_decode((string) $query->getBody(), true);
-} catch (\Exception $error) {
-    echo $error->getMessage();
+    switch ($text) {
+        case 'Perceval':
+            $speech = "Hi, Nice to meet you";
+            break;
+
+        case 'bye':
+            $speech = "Bye, good night";
+            break;
+
+        case 'anything':
+            $speech = "Yes, you can type anything here.";
+            break;
+
+        default:
+            $speech = "Sorry, I didnt get that. Please ask me something else.";
+            break;
+    }
+
+    $response = new \stdClass();
+    $response->speech = $speech;
+    $response->displayText = $speech;
+    $response->source = "webhook";
+    echo json_encode($response);
 }
+else
+{
+    echo "Method not allowed";
+}
+

@@ -16,7 +16,6 @@ if($method == 'POST'){
     $json = json_decode($requestBody);
 
     $text = strtolower($json->result->parameters->text);
-    $categorie = strtolower($json->result->parameters->Categorie);
 
     switch ($text) {
         case 'perceval':
@@ -33,7 +32,7 @@ if($method == 'POST'){
             break;
 
         default:
-            $speech = "Sorry, I didnt get $text - $categorie.  Please ask me something else.";
+            $speech = "Sorry, I didnt get $text .  Please ask me something else.";
             break;
     }
 

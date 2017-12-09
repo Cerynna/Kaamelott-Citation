@@ -5,13 +5,7 @@ function sendMessage($parameters) {
 }
 
 $animals = [
-
         "name" => "lièvre",
-        "sound" => [
-            "noun" => "vagissement",
-            "verb" => "vagit"
-        ],
-
 ];
 
 

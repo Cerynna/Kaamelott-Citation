@@ -1,3 +1,5 @@
+<?php
+echo '
 Content-type: application/json
 
 {
@@ -69,3 +71,4 @@ Content-type: application/json
 }
 }
 }
+';

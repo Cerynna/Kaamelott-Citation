@@ -1,10 +1,4 @@
-POST https://my-service.com/action
-
-Headers:
-//user defined headers
 Content-type: application/json
-
-POST body:
 
 {
 "lang": "en",

@@ -1,8 +1,8 @@
 <?php
 
 $data = [
-    'speech' => 'Perceval',
+    'test' => 'Perceval',
     'displayText' => 'LOL'
 ];
-header('Content-Type: application/json');
+header('Content-Type', 'application/json; charset=UTF-8');
 echo json_encode($data);

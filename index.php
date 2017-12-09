@@ -20,12 +20,11 @@ if($method == 'POST'){
     switch ($text) {
         case 'perceval':
             ;
-            $rand_keys = array_rand(Citation::PERCEVAL, 1);
-            $speech = Citation::PERCEVAL[$rand_keys];
+            $speech = Citation::PERCEVAL[array_rand(Citation::PERCEVAL, 1)];
             break;
 
         case 'arthur':
-            $speech = "Bye, good night";
+            $speech = Citation::ARTHUR[array_rand(Citation::ARTHUR, 1)];
             break;
 
         case 'anything':

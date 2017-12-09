@@ -1,9 +1,6 @@
 <?php
-function sendMessage($parameters) {
 
-
-}
-header('Content-Type: application/json');
+//header('Content-Type: application/json');
 $json = '{
   "fulfillmentText": string,
   "fulfillmentMessages": [
@@ -24,5 +21,5 @@ $json = '{
     object(EventInput)
   },
 }';
-echo $json;
+echo json_encode($json);
 

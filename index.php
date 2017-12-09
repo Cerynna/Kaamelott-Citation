@@ -17,11 +17,11 @@ if($method == 'POST'){
     $text = $json->result->parameters->text;
 
     switch ($text) {
-        case 'perceval':
+        case 'Perceval':
             $speech = "Hi, Nice to meet you";
             break;
 
-        case 'arthur':
+        case 'Arthur':
             $speech = "Bye, good night";
             break;
 

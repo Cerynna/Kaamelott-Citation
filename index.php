@@ -1,25 +1,10 @@
 <?php
+function sendMessage($parameters) {
+    header('Content-Type: application/json');
+    echo json_encode($parameters);
+}
 
-header('Content-Type: application/json');
-$json = '{
-  "fulfillmentText": string,
-  "fulfillmentMessages": [
-    {
-      object(Message)
-    }
-  ],
-  "source": string,
-  "payload": {
-    object
-  },
-  "outputContexts": [
-    {
-      object(Context)
-    }
-  ],
-  "followupEventInput": {
-    object(EventInput)
-  },
-}';
-echo json_encode($json);
+$parameters = $_SERVER;
 
+
+sendMessage($parameters);

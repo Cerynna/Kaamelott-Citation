@@ -55,15 +55,8 @@ class MyBot
     public function getCitation($personnage, &$citation)
     {
 
-        $serviceAccount = ServiceAccount::fromJsonFile(__DIR__ . '/firebase.json');
-        $apiKey = 'AIzaSyDLa89dyojec_T69Q-HXP2CWfgNsIg6xmw';
 
-        $firebase = (new Factory)
-            ->withServiceAccountAndApiKey($serviceAccount, $apiKey)
-            ->create();
-
-        $database = $firebase->getDatabase();
-        $reference = $database->getReference("citations/$personnage");
+        $reference = $this->database->getReference("citations/$personnage");
         $value = $reference->getValue();
         if (is_array($value)) {
             $keyRandom = array_rand($value);
@@ -74,6 +67,18 @@ class MyBot
             return $citation = "Je connais $personnage mais je n'ai pas encore de citation pour ce personnage.";
         }
 
+    }
+
+    public function addCitation($personnage,$newCitation, &$citation)
+    {
+        $newPost = $this->database
+            ->getReference("citations/$personnage")
+            ->push([
+                $newCitation,
+            ]);
+        $newPost->getValue();
+
+        return $citation = "$newCitation a été rajouter pour $personnage";
     }
 
 }

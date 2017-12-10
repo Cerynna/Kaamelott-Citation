@@ -20,17 +20,3 @@ $firebase = (new Factory)
 
 $database = $firebase->getDatabase();
 
-$newPost = $database
-    ->getReference('citations/bohort')
-    ->push([
-
-        "Jo le rigolo ???!!!",
-        "Vous êtes un grand malade mental !",
-        "MÉÉCRÉÉAAAAAAAAANTS !",
-        "Vous prenez votre arc et vous le bouffez ! Espèce de dégénéré sanguinaire !"
-
-
-    ]);
-
-
-$newPost->getValue(); // Fetches the data from the realtime database

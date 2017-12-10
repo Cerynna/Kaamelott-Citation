@@ -21,13 +21,13 @@ $firebase = (new Factory)
 $database = $firebase->getDatabase();
 
 $newPost = $database
-    ->getReference('citations/perceval')
+    ->getReference('citations/karadoc')
     ->push([
 
-        "Putain, en plein dans sa mouille !",
-        "C’est pas faux.",
-        "Toi un jour je te crame ta famille, toi.",
-        "Faut arrêter ces conneries de nord et de sud ! Une fois pour toutes, le nord, suivant comment on est tourné, ça change tout !",
+        "Eh oui mémé, t'es bien mouchée!",
+        "Des p'tits croutons tout vieux genre pour les lapins ? Ouais j'savais pas c'que c'était, dans le doute j'les ai bouffés.",
+        "Si ça peut m'éviter de chlinguer du cul, je peux bien me tremper une ou deux fois par an.",
+        "Ça y est… je vois trouble. C’est le manque de gras, je me dessèche."
 
 
     ]);

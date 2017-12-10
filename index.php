@@ -33,9 +33,8 @@ use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 
 
-
-
-function getCitation($personnage, &$citation){
+function getCitation($personnage, &$citation)
+{
 
     $serviceAccount = ServiceAccount::fromJsonFile(__DIR__ . '/firebase.json');
     $apiKey = 'AIzaSyDLa89dyojec_T69Q-HXP2CWfgNsIg6xmw';
@@ -54,44 +53,27 @@ function getCitation($personnage, &$citation){
 }
 
 
-
-
 require "Citation.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
 
 // Process only when method is POST
-if($method == 'POST'){
+if ($method == 'POST') {
     $requestBody = file_get_contents('php://input');
     $json = json_decode($requestBody);
 
     $text = strtolower($json->result->parameters->text);
 
-    switch ($text) {
-        case 'perceval':
-            getCitation($text, $citation);
-            $speech = $citation;
-            break;
+    getCitation($text, $citation);
+    $speech = $citation;
 
-        case 'arthur':
-            getCitation($text, $citation);
-            $speech = $citation;
-            break;
-
-
-        default:
-            $speech = "Désolé je ne comprend pas  $text .  Dit moi autre chose";
-            break;
-    }
 
     $response = new \stdClass();
     $response->speech = $speech;
     $response->displayText = $speech;
     $response->source = "webhook";
     echo json_encode($response);
-}
-else
-{
+} else {
     echo "Method not allowed";
 }
 

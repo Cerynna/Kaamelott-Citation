@@ -26,8 +26,9 @@ if ($method == 'POST') {
         $newCitation = explode(' ', $allQuery);
         unset($newCitation[0]);
         unset($newCitation[1]);
-        $newCitation = implode(' ', $newCitation);
-        $speech = $newCitation;
+        $newCitation = implode(' ', $newCitation) . " a été rajouter a $personnage";
+        $myBot->addCitation($personnage,$newCitation, $citation);
+        $speech = $citation;
     }
     else {
 

@@ -33,6 +33,8 @@ if ($method == 'POST') {
 
         $myBot->getCitation($personnage, $citation);
         $speech = $citation;
+        $destinationName = "test";
+        $url= "www.google.fr";
     }
 
 
@@ -40,6 +42,10 @@ if ($method == 'POST') {
     $response = new \stdClass();
     $response->speech = $speech;
     $response->displayText = $speech;
+
+    $response->url = $url;
+    $response->destinationName = $destinationName;
+
     $response->source = "webhook";
     echo json_encode($response);
 } else {

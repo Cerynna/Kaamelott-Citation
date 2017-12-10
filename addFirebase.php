@@ -21,13 +21,13 @@ $firebase = (new Factory)
 $database = $firebase->getDatabase();
 
 $newPost = $database
-    ->getReference('citations/merlin')
+    ->getReference('citations/bohort')
     ->push([
 
-        "Qu'est-ce qui est petit et marron ?",
-        "Putain, il est fort ce con.",
-        "J'adore la chataîgne. Je m'en ferais péter le bide. Vous en voulez ?",
-        "Franchement, une potion pour faire pisser bleu, ça presse forcément la minute ?"
+        "Jo le rigolo ???!!!",
+        "Vous êtes un grand malade mental !",
+        "MÉÉCRÉÉAAAAAAAAANTS !",
+        "Vous prenez votre arc et vous le bouffez ! Espèce de dégénéré sanguinaire !"
 
 
     ]);

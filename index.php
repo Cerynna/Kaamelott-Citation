@@ -23,8 +23,8 @@ if ($method == 'POST') {
 
     if ( !empty($action)  and $action === "ajouter")
     {
-        str_replace($action,'',$allQuery);
-        str_replace($personnage,'',$allQuery);
+        $allQuery = str_replace($action,'',$allQuery);
+        $allQuery = str_replace($personnage,'',$allQuery);
 
         $myBot->addCitation($personnage,$allQuery, $citation);
         $speech = $citation;

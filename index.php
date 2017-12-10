@@ -69,8 +69,15 @@ if ($method == 'POST') {
     $personnage = strtolower($json->result->parameters->personnage);
     $test = $json->result->resolvedQuery;
 
-    getCitation($personnage, $citation);
-    $speech = $citation . $test;
+    if (strtolower($json->result->parameters->action) === "ajouter")
+    {
+        $speech = $test;
+    }
+    else {
+        getCitation($personnage, $citation);
+        $speech = $citation;
+    }
+
 
 
     $response = new \stdClass();

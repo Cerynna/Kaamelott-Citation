@@ -68,8 +68,9 @@ if ($method == 'POST') {
 
     $personnage = strtolower($json->result->parameters->personnage);
     $test = $json->result->resolvedQuery;
+    $action = $json->result->parameters->action;
 
-    if (strtolower($json->result->parameters->action) === "ajouter")
+    if ( !empty($action)  and strtolower($action) === "ajouter")
     {
         $speech = $test;
     }

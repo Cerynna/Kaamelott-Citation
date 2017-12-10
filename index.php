@@ -46,10 +46,15 @@ function getCitation($personnage, &$citation)
     $database = $firebase->getDatabase();
     $reference = $database->getReference("citations/$personnage");
     $value = $reference->getValue();
+    if (is_array($value)) {
+        $keyRandom = array_rand($value);
+        $keyRandomCitation = array_rand($value[$keyRandom]);
+        return $citation = $value[$keyRandom][$keyRandomCitation];
+    }
+    else {
+        return $citation = "Je connais $personnage mais e n'ai pas encore de citation pour ce personnage.";
+    }
 
-    $keyRandom = array_rand($value);
-    $keyRandomCitation = array_rand($value[$keyRandom]);
-    return $citation = $value[$keyRandom][$keyRandomCitation];
 }
 
 

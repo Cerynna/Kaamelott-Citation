@@ -48,22 +48,31 @@ class MyBot
             ->withServiceAccountAndApiKey($serviceAccount, $apiKey)
             ->create();
 
-        $this->setDatabase($firebase->getDatabase()) ;
+        $this->setDatabase($firebase->getDatabase());
 
     }
 
+    public function getList(&$list)
+    {
+        $arrayCitation = $this->database->getReference("citations")->getValue();
+
+        foreach ($arrayCitation as $personnage => $citations){
+            $list[] = $this->formatCitation($personnage);
+        }
+        $list = implode(' ', $list) ;
+        return $list;
+    }
+
+
     public function getCitation($personnage, &$citation)
     {
-
-
         $reference = $this->database->getReference("citations/$personnage");
         $value = $reference->getValue();
         if (is_array($value)) {
             $keyRandom = array_rand($value);
             $keyRandomCitation = array_rand($value[$keyRandom]);
             return $citation = $value[$keyRandom][$keyRandomCitation];
-        }
-        else {
+        } else {
             return $citation = "Je connais $personnage mais je n'ai pas encore de citation pour ce personnage.";
         }
 
@@ -87,16 +96,14 @@ class MyBot
             if ($i === 0) {
                 if ($str[$i] == ' ') {
                     $str[$i + 1] = strtoupper($str[$i + 1] . "");
-                }
-                else {
+                } else {
                     $str[$i] = strtoupper($str[$i] . "");
                 }
 
             } else if ($str[$i] == '.' || $str[$i] == '!' || $str[$i] == "?") {
                 if ($str[$i + 1] == ' ') {
                     $str[$i + 2] = strtoupper($str[$i + 2] . "");
-                }
-                else {
+                } else {
                     $str[$i + 1] = strtoupper($str[$i + 1] . "");
                 }
             }

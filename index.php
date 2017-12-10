@@ -33,7 +33,7 @@ if ($method == 'POST') {
     }
     elseif(!empty($list))
     {
-        $myBot->getCitation('', $citation);
+        $myBot->getList($citation);
         $speech = $citation;
     }
     else {

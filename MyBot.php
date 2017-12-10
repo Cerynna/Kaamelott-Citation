@@ -78,7 +78,7 @@ class MyBot
             ]);
         $newPost->getValue();
 
-        return $citation = "$newCitation | A été rajouter pour $personnage";
+        return $citation = "$newCitation \n | A été rajouter pour $personnage";
     }
 
 }

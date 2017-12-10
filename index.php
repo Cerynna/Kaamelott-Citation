@@ -67,12 +67,16 @@ if ($method == 'POST') {
     $json = json_decode($requestBody);
 
     $personnage = strtolower($json->result->parameters->personnage);
-    $test = $json->result->resolvedQuery;
+    $allQuery = $json->result->resolvedQuery;
     $action = $json->result->parameters->action;
 
     if ( !empty($action)  and strtolower($action) === "ajouter")
     {
-        $speech = $test;
+        $newCitation = explode(' ', $allQuery);
+        unset($newCitation[0]);
+        unset($newCitation[1]);
+        $newCitation = implode(' ', $newCitation);
+        $speech = $newCitation;
     }
     else {
         getCitation($personnage, $citation);

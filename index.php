@@ -74,7 +74,8 @@ if($method == 'POST'){
             break;
 
         case 'arthur':
-            $speech = Citation::ARTHUR[array_rand(Citation::ARTHUR, 1)];
+            getCitation($text, $citation);
+            $speech = $citation;
             break;
 
 

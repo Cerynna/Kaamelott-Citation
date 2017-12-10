@@ -8,36 +8,13 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use Kreait\Firebase\Factory;
-use Kreait\Firebase\ServiceAccount;
+require "MyBot.php";
 
-function getCitation($personnage, &$citation)
-{
+$test = new MyBot();
 
-    $serviceAccount = ServiceAccount::fromJsonFile(__DIR__ . '/firebase.json');
-    $apiKey = 'AIzaSyDLa89dyojec_T69Q-HXP2CWfgNsIg6xmw';
+$mystring = "non, mais attention ! si je deviens. pape, y'a ?rien qui ? m'empêche de revenir de temps en temps pour !faire un petit coucou.";
 
-    $firebase = (new Factory)
-        ->withServiceAccountAndApiKey($serviceAccount, $apiKey)
-        ->create();
-
-    $database = $firebase->getDatabase();
-    $reference = $database->getReference("citations/$personnage");
-    $value = $reference->getValue();
-    if (is_array($value)) {
-        $keyRandom = array_rand($value);
-        $keyRandomCitation = array_rand($value[$keyRandom]);
-        return $citation = $value[$keyRandom][$keyRandomCitation];
-    }
-    else {
-        return $citation = "Je n'ai pas compris $personnage";
-    }
-
-}
-
-getCitation('lolilol', $cit);
-
-echo $cit;
+$mystring = $test->formatCitation($mystring);
 
 
-//echo $cit;
+echo $mystring;

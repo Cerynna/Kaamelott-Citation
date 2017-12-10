@@ -74,7 +74,7 @@ class MyBot
         $newPost = $this->database
             ->getReference("citations/$personnage")
             ->push([
-                $newCitation,
+                $this->formatCitation($newCitation),
             ]);
         $newPost->getValue();
 
@@ -84,7 +84,7 @@ class MyBot
     public function formatCitation($str)
     {
         for ($i = 0; $i < strlen($str) - 1; $i++) {
-            if ($i == 0) {
+            if ($i === 0) {
                 $str[$i] = strtoupper($str[$i] . "");
             } else if ($str[$i] == '.' || $str[$i] == '!' || $str[$i] == "?") {
                 if ($str[$i + 1] == ' ') {
@@ -93,8 +93,6 @@ class MyBot
                 else {
                     $str[$i + 1] = strtoupper($str[$i + 1] . "");
                 }
-
-
             }
         }
         return $str;

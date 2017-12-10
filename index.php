@@ -26,7 +26,7 @@ if ($method == 'POST') {
         $allQuery = str_replace($action,'',$allQuery);
         $allQuery = str_replace($personnage,'',$allQuery);
 
-        $myBot->addCitation($personnage,$myBot->formatCitation($allQuery), $citation);
+        $myBot->addCitation($personnage,$allQuery, $citation);
         $speech = $citation;
     }
     else {

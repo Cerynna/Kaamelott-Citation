@@ -78,7 +78,7 @@ class MyBot
             ]);
         $newPost->getValue();
 
-        return $citation = "$newCitation \n | A été rajouter pour $personnage";
+        return $citation = $this->formatCitation($newCitation) . "\n | A été rajouter pour $personnage";
     }
 
     public function formatCitation($str)

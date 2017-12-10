@@ -69,7 +69,7 @@ class MyBot
 
     }
 
-    public function addCitation($personnage,$newCitation, &$citation)
+    public function addCitation($personnage, $newCitation, &$citation)
     {
         $newPost = $this->database
             ->getReference("citations/$personnage")
@@ -78,7 +78,7 @@ class MyBot
             ]);
         $newPost->getValue();
 
-        return $citation = "$newCitation a été rajouter pour $personnage";
+        return $citation = "$newCitation | A été rajouter pour $personnage";
     }
 
 }

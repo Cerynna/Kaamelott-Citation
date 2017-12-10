@@ -52,7 +52,7 @@ function getCitation($personnage, &$citation)
         return $citation = $value[$keyRandom][$keyRandomCitation];
     }
     else {
-        return $citation = "Je connais $personnage mais e n'ai pas encore de citation pour ce personnage.";
+        return $citation = "Je connais $personnage mais je n'ai pas encore de citation pour ce personnage.";
     }
 
 }

@@ -17,11 +17,11 @@ if ($method == 'POST') {
     $json = json_decode($requestBody);
 
     $personnage = strtolower($json->result->parameters->personnage);
-    $allQuery = $json->result->resolvedQuery;
-    $action = $json->result->parameters->action;
+    $allQuery = strtolower($json->result->resolvedQuery);
+    $action = strtolower($json->result->parameters->action);
     $myBot = new MyBot();
 
-    if ( !empty($action)  and strtolower($action) === "ajouter")
+    if ( !empty($action)  and $action === "ajouter")
     {
         str_replace($action,'',$allQuery);
         str_replace($personnage,'',$allQuery);

@@ -23,11 +23,10 @@ if ($method == 'POST') {
 
     if ( !empty($action)  and strtolower($action) === "ajouter")
     {
-        $newCitation = explode(' ', $allQuery);
-        unset($newCitation[0]);
-        unset($newCitation[1]);
-        $newCitation = implode(' ', $newCitation);
-        $myBot->addCitation($personnage,$newCitation, $citation);
+        str_replace($action,'',$allQuery);
+        str_replace($personnage,'',$allQuery);
+
+        $myBot->addCitation($personnage,$allQuery, $citation);
         $speech = $citation;
     }
     else {

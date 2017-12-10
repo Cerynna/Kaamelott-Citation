@@ -85,7 +85,13 @@ class MyBot
     {
         for ($i = 0; $i < strlen($str) - 1; $i++) {
             if ($i === 0) {
-                $str[$i] = strtoupper($str[$i] . "");
+                if ($str[$i] == ' ') {
+                    $str[$i + 1] = strtoupper($str[$i + 1] . "");
+                }
+                else {
+                    $str[$i] = strtoupper($str[$i] . "");
+                }
+
             } else if ($str[$i] == '.' || $str[$i] == '!' || $str[$i] == "?") {
                 if ($str[$i + 1] == ' ') {
                     $str[$i + 2] = strtoupper($str[$i + 2] . "");

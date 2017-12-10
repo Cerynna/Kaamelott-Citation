@@ -58,7 +58,6 @@ function getCitation($personnage, &$citation)
 }
 
 
-require "Citation.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
 
@@ -68,9 +67,10 @@ if ($method == 'POST') {
     $json = json_decode($requestBody);
 
     $personnage = strtolower($json->result->parameters->personnage);
+    $test = $json->result->resolvedQuery;
 
     getCitation($personnage, $citation);
-    $speech = $citation;
+    $speech = $citation . $test;
 
 
     $response = new \stdClass();

@@ -59,7 +59,7 @@ class MyBot
         foreach ($arrayCitation as $personnage => $citations){
             $list[] = $this->formatCitation($personnage);
         }
-        $list = "Voila la liste des Héros" . implode(' ', $list) ;
+        $list = "Voila la liste des Héros : " . implode('\n', $list) ;
         return $list;
     }
 

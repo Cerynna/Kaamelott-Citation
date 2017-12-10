@@ -1,6 +1,7 @@
 {
     "require": {
         "php": "~7",
-        "iboldurev/dialogflow": "^0.3.0"
+        "iboldurev/dialogflow": "^0.3.0",
+        "kreait/firebase-php": "^3.0"
     }
 }

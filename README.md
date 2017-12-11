@@ -3,6 +3,8 @@
 ## Introduction
 
 > A simple webhook for DialogFlow créate on PHP and upload on Heroku
+> Use FireBase
+> Add Class MyBot
 
 ## Code Samples
 

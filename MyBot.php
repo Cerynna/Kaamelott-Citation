@@ -62,7 +62,7 @@ class MyBot
             $list[] = $this->formatCitation($citation);
             }
         }
-        $list = "Voila la liste des Citations pour $perso : " . implode(', ', $list) ;
+        $list = "Voila la liste des Citations pour $perso : " . implode(',\n ', $list) ;
         return $list;
     }
 

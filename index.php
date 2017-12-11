@@ -26,16 +26,16 @@ if ($method == 'POST') {
         $myBot->getCitation($personnage, $citation);
         $speech = $citation;
     }
-    if ( !empty($action))
+    if ( !empty($action) || empty($list))
     {
         $allQuery = str_replace($action." ",'',$allQuery);
         $allQuery = str_replace($personnage." ",'',$allQuery);
 
-        $myBot->addCitation($personnage,$allQuery, $citation);
+        $myBot->addCitation($personnage, $allQuery, $citation);
         $speech = $citation;
 
     }
-    if(!empty($list))
+    if(!empty($list)|| empty($action))
     {
         $myBot->getList($citation);
         $speech = $citation;

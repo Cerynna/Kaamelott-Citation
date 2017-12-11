@@ -91,7 +91,7 @@ if ($method == 'POST') {
     );
 
     $response = new \stdClass();
-    $response->message = $message;
+    $response->message = $messages;
     $response->speech = $speech;
     $response->displayText = $speech;
     $response->source = "webhook";

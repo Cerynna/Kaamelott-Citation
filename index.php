@@ -96,10 +96,10 @@ if ($method == 'POST') {
         )
     );
     $response = new \stdClass();
-    $response->messages = $messages;
-    $response->speech = $speech;
-    $response->displayText = $speech;
     $response->source = "webhook";
+    $response->speech = $speech;
+    $response->messages = $messages;
+    $response->contextOut = array();
     echo json_encode($response);
 } else {
     echo "Method not allowed";

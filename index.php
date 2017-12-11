@@ -68,6 +68,12 @@ if ($method == 'POST') {
 
     }
     $messages=[];
+    array_push($messages, array(
+            "type"=> "simple_response",
+            "platform"=> "google",
+            "textToSpeech"=> "Here is speech and additional msg for card"
+        )
+    );
 // Building Card
     array_push($messages, array(
             "type"=> "basic_card",
@@ -89,12 +95,7 @@ if ($method == 'POST') {
             ]
         )
     );
-    array_push($messages, array(
-            "type"=> "simple_response",
-            "platform"=> "google",
-            "textToSpeech"=> "Here is speech and additional msg for card"
-        )
-    );
+
     $response = new \stdClass();
     $response->source = "webhook";
     $response->speech = $speech;

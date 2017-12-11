@@ -31,12 +31,12 @@ if ($method == 'POST') {
         $myBot->addCitation($personnage,$allQuery, $citation);
         $speech = $citation;
     }
-    elseif(!empty($list))
+    if(!empty($list))
     {
         $myBot->getList($citation);
         $speech = $citation;
     }
-    else {
+    if (empty($action) ||empty($list)) {
         $myBot->getCitation($personnage, $citation);
         $speech = $citation;
     }

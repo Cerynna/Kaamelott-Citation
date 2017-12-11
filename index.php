@@ -78,7 +78,7 @@ if ($method == 'POST') {
             "title"=> "Card title",
             "subtitle"=> "card subtitle",
             "image"=>[
-                "url"=>'http://image-url',
+                "url"=>'http://lorempixel.com/output/people-q-c-200-200-10.jpg',
                 "accessibility_text"=>'image-alt'
             ],
             "formattedText"=> 'Text for card',
@@ -86,7 +86,7 @@ if ($method == 'POST') {
                 [
                     "title"=> "Button title",
                     "openUrlAction"=> [
-                        "url"=> "http://url redirect for button"
+                        "url"=> "http://lorempixel.com/output/people-q-c-200-200-10.jpg"
                     ]
                 ]
             ]

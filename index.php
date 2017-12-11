@@ -82,14 +82,14 @@ if ($method == 'POST') {
                 "accessibility_text"=>'image-alt'
             ],
             //"formattedText"=> 'Text for card',
-            "buttons"=> [
+            /*"buttons"=> [
                 [
                     "title"=> "Button title",
                     "openUrlAction"=> [
                         "url"=> "http://lorempixel.com/200/200"
                     ]
                 ]
-            ]
+            ]*/
         )
     );
 

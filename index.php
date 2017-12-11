@@ -29,26 +29,36 @@ if ($method == 'POST') {
 
     $speech = $personnage . " - " . $action . " - " . $list . " - " . $allQuery . " - " . $parameters;
 
-
-
-/*    if (empty($action) || empty($list)) {
+    if (!empty($personnage) && empty($action) && empty($list))
+    {
         $myBot->getCitation($personnage, $citation);
         $speech = $citation;
     }
-    if ( !empty($action) || empty($list))
+    elseif (!empty($personnage) and !empty($action))
     {
-        $allQuery = str_replace($action." ",'',$allQuery);
-        $allQuery = str_replace($personnage." ",'',$allQuery);
+        if ($action === "add")
+        {
+            /**
+            $allQuery = str_replace($action." ",'',$allQuery);
+            $allQuery = str_replace($personnage." ",'',$allQuery);
 
-        $myBot->addCitation($personnage, $allQuery, $citation);
-        $speech = $citation;
-
+            $myBot->addCitation($personnage, $allQuery, $citation);
+            $speech = $citation;
+             */
+            $speech = "add perso";
+        }
+        elseif ($action === 'list')
+        {
+            /**
+            $myBot->getList($citation);
+            $speech = $citation;
+             */
+            $speech = "list perso";
+        }
+        else {
+            $speech = "L'action n'est pas géré";
+        }
     }
-    if(!empty($list)|| empty($action))
-    {
-        $myBot->getList($citation);
-        $speech = $citation;
-    }*/
 
 
 

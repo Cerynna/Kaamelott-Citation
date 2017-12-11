@@ -59,6 +59,11 @@ if ($method == 'POST') {
             $speech = "L'action n'est pas géré";
         }
     }
+    elseif (!empty($action) && $action === 'list')
+    {
+        $myBot->getListHero($citation);
+        $speech = $citation;
+    }
 
 
 

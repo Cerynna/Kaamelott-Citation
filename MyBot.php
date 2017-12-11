@@ -52,7 +52,7 @@ class MyBot
 
     }
 
-    public function getList(&$list)
+    public function getListHero(&$list)
     {
         $arrayCitation = $this->database->getReference("citations")->getValue();
 

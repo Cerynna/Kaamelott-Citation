@@ -63,6 +63,10 @@ if ($method == 'POST') {
         $myBot->getListHero($citation);
         $speech = $citation;
     }
+    if (!empty($test))
+    {
+        
+    }
 
 
 

@@ -14,8 +14,8 @@ $test = new MyBot();
 
 
 
-$test->getList($list);
+$test->getCitation('arthur', $citation);
 
 
-print_r($list) ;
+print_r($citation).PHP_EOL ;
 

@@ -7,11 +7,15 @@ require __DIR__ . '/vendor/autoload.php';
 
 require "MyBot.php";
 
+
 //Guzzle
 $method = $_SERVER['REQUEST_METHOD'];
 
 // Process only when method is POST
 if ($method == 'POST') {
+
+    $myBot = new MyBot();
+
     $requestBody = file_get_contents('php://input');
     $json = json_decode($requestBody);
 
@@ -21,7 +25,7 @@ if ($method == 'POST') {
     $action = strtolower($json->result->parameters->action);
     $list = strtolower($json->result->parameters->list);
 
-    $myBot = new MyBot();
+
     if (empty($action) || empty($list)) {
         $myBot->getCitation($personnage, $citation);
         $speech = $citation;

@@ -20,13 +20,17 @@ if ($method == 'POST') {
     $json = json_decode($requestBody);
 
 
+    $parameters = strtolower($json->result->parameters);
     $personnage = strtolower($json->result->parameters->personnage);
     $allQuery = strtolower($json->result->resolvedQuery);
     $action = strtolower($json->result->parameters->action);
     $list = strtolower($json->result->parameters->list);
 
 
-    $speech = $personnage . " - " . $action . " - " . $list . " - " . $allQuery;
+    $speech = $personnage . " - " . $action . " - " . $list . " - " . $allQuery . " - " . $parameters;
+
+
+
 /*    if (empty($action) || empty($list)) {
         $myBot->getCitation($personnage, $citation);
         $speech = $citation;

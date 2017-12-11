@@ -37,9 +37,9 @@ array_push($messages, array(
     )
 );
 $response=array(
-    "source" => $request["result"]["source"],
+    "source" => "webhook",
     "speech" => "Speech for response",
     "messages" => $messages,
     "contextOut" => array()
 );
-json_encode($response);
+echo json_encode($response);

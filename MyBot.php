@@ -62,7 +62,7 @@ class MyBot
             $list[] = $this->formatCitation($citation);
             }
         }
-        $list = "Voila la liste des Citations pour $perso : " . implode(', ' . PHP_EOL, $list) ;
+        $list = "Voila la liste des Citations pour $perso :" . PHP_EOL .  PHP_EOL  . implode( PHP_EOL, $list) ;
         return $list;
     }
 
@@ -73,7 +73,7 @@ class MyBot
         foreach ($arrayCitation as $personnage => $citations){
             $list[] = $this->formatCitation($personnage);
         }
-        $list = "Voila la liste des Héros : " . implode(', ', $list) ;
+        $list = "Voila la liste des Héros : " . PHP_EOL . PHP_EOL . implode(PHP_EOL, $list) ;
         return $list;
     }
 

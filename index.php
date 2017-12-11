@@ -65,13 +65,33 @@ if ($method == 'POST') {
     }
     if (!empty($test))
     {
-        
+
     }
-
-
-
+    $messages=[];
+// Building Card
+    array_push($messages, array(
+            "type"=> "basic_card",
+            "platform"=> "google",
+            "title"=> "Card title",
+            "subtitle"=> "card subtitle",
+            "image"=>[
+                "url"=>'http://image-url',
+                "accessibility_text"=>'image-alt'
+            ],
+            "formattedText"=> 'Text for card',
+            "buttons"=> [
+                [
+                    "title"=> "Button title",
+                    "openUrlAction"=> [
+                        "url"=> "http://url redirect for button"
+                    ]
+                ]
+            ]
+        )
+    );
 
     $response = new \stdClass();
+    $response->message = $message;
     $response->speech = $speech;
     $response->displayText = $speech;
     $response->source = "webhook";

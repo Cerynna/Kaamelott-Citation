@@ -14,8 +14,8 @@ $test = new MyBot();
 
 
 
-$test->getList($citation);
+$test->getList($list);
 
 
-print_r($citation) ;
+print_r($list) ;
 

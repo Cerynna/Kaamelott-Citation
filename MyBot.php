@@ -52,6 +52,17 @@ class MyBot
 
     }
 
+    public function getListCitation($perso, &$list)
+    {
+        $arrayCitation = $this->database->getReference("citations/$perso")->getValue();
+
+        foreach ($arrayCitation as $personnage => $citations){
+            $list[] = $this->formatCitation($personnage);
+        }
+        $list = "Voila la liste des Citations pour $perso : " . implode(', ', $list) ;
+        return $list;
+    }
+
     public function getListHero(&$list)
     {
         $arrayCitation = $this->database->getReference("citations")->getValue();

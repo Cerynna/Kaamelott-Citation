@@ -49,11 +49,10 @@ if ($method == 'POST') {
         }
         elseif ($action === 'list')
         {
-            /**
-            $myBot->getList($citation);
+
+            $myBot->getListCitation($personnage, $citation);
             $speech = $citation;
-             */
-            $speech = "list perso";
+
         }
         else {
             $speech = "L'action n'est pas géré";

@@ -29,64 +29,65 @@ if ($method == 'POST') {
 
     $speech = $personnage . " - " . $action . " - " . $list . " - " . $allQuery . " - " . $parameters;
 
-    if (!empty($personnage) && empty($action) && empty($list))
-    {
+    if (!empty($personnage) && empty($action) && empty($list)) {
         $myBot->getCitation($personnage, $citation);
         $speech = $citation;
-    }
-    elseif (!empty($personnage) and !empty($action))
-    {
-        if ($action === "add")
-        {
+    } elseif (!empty($personnage) and !empty($action)) {
+        if ($action === "add") {
             /**
-            $allQuery = str_replace($action." ",'',$allQuery);
-            $allQuery = str_replace($personnage." ",'',$allQuery);
-
-            $myBot->addCitation($personnage, $allQuery, $citation);
-            $speech = $citation;
+             * $allQuery = str_replace($action." ",'',$allQuery);
+             * $allQuery = str_replace($personnage." ",'',$allQuery);
+             *
+             * $myBot->addCitation($personnage, $allQuery, $citation);
+             * $speech = $citation;
              */
             $speech = "add perso";
-        }
-        elseif ($action === 'list')
-        {
+        } elseif ($action === 'list') {
 
             $myBot->getListCitation($personnage, $citation);
             $speech = $citation;
 
-        }
-        else {
+        } else {
             $speech = "L'action n'est pas géré";
         }
-    }
-    elseif (!empty($action) && $action === 'list')
-    {
+    } elseif (!empty($action) && $action === 'list') {
         $myBot->getListHero($citation);
         $speech = $citation;
     }
 
-    $messages=[];
+    $messages = [];
     array_push($messages, array(
-            "type"=> "simple_response",
-            "platform"=> "google",
-            "textToSpeech"=> $speech
+            "type" => "simple_response",
+            "platform" => "google",
+            "textToSpeech" => $speech
         )
     );
 // Building Card
     array_push($messages, array(
-            "type"=> "basic_card",
-            "platform"=> "google",
-            "title"=> "Card title",
-            "subtitle"=> "card subtitle",
-            "image"=>[
-                "url"=>'http://lorempixel.com/output/people-q-c-200-200-10.jpg',
-                "accessibility_text"=>'image-alt'
-            ],
-            "formattedText"=> 'Text for card',
-            "buttons"=> [
+            "type" => "basic_card",
+            "platform" => "google",
+            "title" => "Card title",
+            "subtitle" => "card subtitle",
+            "image" => [
                 [
-                    "title"=> "Button title",
-                    "openUrlAction"=> [
-                        "url"=> "http://lorempixel.com/output/people-q-c-200-200-10.jpg"
+                    "url" => 'http://lorempixel.com/200/200',
+                    "accessibility_text" => 'image-alt'
+                ],
+                [
+                    "url" => 'http://lorempixel.com/200/200',
+                    "accessibility_text" => 'image-alt'
+                ],
+                [
+                    "url" => 'http://lorempixel.com/200/200',
+                    "accessibility_text" => 'image-alt'
+                ],
+            ],
+            "formattedText" => 'Text for card',
+            "buttons" => [
+                [
+                    "title" => "Button title",
+                    "openUrlAction" => [
+                        "url" => "http://lorempixel.com/200/200"
                     ]
                 ]
             ]

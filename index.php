@@ -26,7 +26,8 @@ if ($method == 'POST') {
     $list = strtolower($json->result->parameters->list);
 
 
-    if (empty($action) || empty($list)) {
+    $speech = $personnage . " - " . $action . " - " . $list . " - " . $allQuery;
+/*    if (empty($action) || empty($list)) {
         $myBot->getCitation($personnage, $citation);
         $speech = $citation;
     }
@@ -43,7 +44,7 @@ if ($method == 'POST') {
     {
         $myBot->getList($citation);
         $speech = $citation;
-    }
+    }*/
 
 
 

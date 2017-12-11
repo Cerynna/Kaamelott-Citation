@@ -63,15 +63,12 @@ if ($method == 'POST') {
         $myBot->getListHero($citation);
         $speech = $citation;
     }
-    if (!empty($test))
-    {
 
-    }
     $messages=[];
     array_push($messages, array(
             "type"=> "simple_response",
             "platform"=> "google",
-            "textToSpeech"=> "Here is speech and additional msg for card"
+            "textToSpeech"=> $speech
         )
     );
 // Building Card
@@ -98,7 +95,6 @@ if ($method == 'POST') {
 
     $response = new \stdClass();
     $response->source = "webhook";
-    $response->speech = $speech;
     $response->messages = $messages;
     $response->contextOut = array();
     echo json_encode($response);

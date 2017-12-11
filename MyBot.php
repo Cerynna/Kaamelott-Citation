@@ -56,8 +56,11 @@ class MyBot
     {
         $arrayCitation = $this->database->getReference("citations/$perso")->getValue();
 
-        foreach ($arrayCitation as $personnage => $citations){
-            $list[] = $this->formatCitation($personnage);
+        foreach ($arrayCitation as $key => $citations){
+            foreach ($citations as $citation)
+            {
+            $list[] = $this->formatCitation($citation);
+            }
         }
         $list = "Voila la liste des Citations pour $perso : " . implode(', ', $list) ;
         return $list;

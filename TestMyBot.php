@@ -6,7 +6,7 @@
  * Time: 19:45
  */
 
-$request== file_get_contents("php://input");
+$request = file_get_contents("php://input");
 $messages=[];
 // Building Card
 array_push($messages, array(

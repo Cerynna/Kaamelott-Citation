@@ -75,10 +75,14 @@ if ($method == 'POST') {
     array_push($messages, array(
             "type"=> "basic_card",
             "platform"=> "google",
+
+            /**
+             * Option de la card
+             */
             //"title"=> "Card title",
             //"subtitle"=> "card subtitle",
             "image"=> [
-                "url"=>'http://lorempixel.com/200/200',
+                "url"=>'http://lorempixel.com/600/200',
                 "accessibility_text"=>'image-alt'
             ],
             //"formattedText"=> 'Text for card',
